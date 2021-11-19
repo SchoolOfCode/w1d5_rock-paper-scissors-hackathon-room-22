@@ -208,8 +208,9 @@ let keepPlaying // Boolean, true if player wants to keep playing
 do {
     move = prompt ('What is your move?'); // Asks the player what their move is
     computerPlay = getRandomMove() // Computer's random move
+    //computerPlay = computerWinsThreeQuarters(move); // Computer's move that wins 3/4 of the time
     result = getWinner(move, computerPlay) // The result of the computer and player's game
-    alert(`Username: ${userName}, Result: ${result}, Number of Games Played: ${gamesPlayed}, Wins: ${winScore}, Losses: ${lossScore}`); // Lets you know the wins, draws losses, result and username
+    alert(`Username: ${userName}, Result: ${result}, Number of Games Played: ${gamesPlayed}, Wins: ${winScore}, Losses: ${lossScore}, Draws: ${drawScore}`); // Lets you know the wins, draws losses, result and username
     keepPlaying = confirm("Do you want to keep playing?"); // Asks player to confirm if they want to keep playing
 }while (keepPlaying) // Loop quits when player cancels game
 
@@ -276,3 +277,36 @@ function getRandomMove(){
     }
 
 } 
+
+
+//Extension 2
+
+// Function to allow the computer to win 75% of the time
+function computerWinsThreeQuarters(playerMove) {
+    let computerMove; // The computer's move, as a string
+    let randomList = [0, 1, 1, 1]; // Chance that computer will win. 1 means win, and 0 means loss
+    let index = Math.floor(Math.random() * 4); // Picking random number between 0-3
+    let randomNumber = randomList[index]; // Using the random number, choose a number from the list. 
+
+    if (randomNumber === 0) {
+        //computer loses
+        if (playerMove === "rock") {
+            computerMove = "scissors";
+        } else if (playerMove === "paper") {
+            computerMove = "rock"
+        } else if (playerMove === "scissors") {
+            computerMove = "paper"
+        }
+    } else if (randomNumber === 1) {
+        //computer wins
+        if (playerMove === "rock") {
+            computerMove = "paper";
+        } else if (playerMove === "paper") {
+            computerMove = "scissors"
+        } else if (playerMove === "scissors") {
+            computerMove = "rock"
+        }        
+    }
+
+    return computerMove; // Returns the move as a string.
+}
