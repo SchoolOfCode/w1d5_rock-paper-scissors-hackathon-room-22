@@ -206,7 +206,9 @@ let computerPlay; // Computer's move
 let result; // Result after the game
 let keepPlaying // Boolean, true if player wants to keep playing 
 do {
-    move = prompt ('What is your move?'); // Asks the player what their move is
+    do {
+        move = prompt ('What is your move?'); // Asks the player what their move is
+    } while (move !== "rock" && move !== "paper" && move !== "scissors"); // Doesn't allow the player to select a move that isn't "rock", "paper", or "scissors"
     computerPlay = getRandomMove() // Computer's random move
     //computerPlay = computerWinsThreeQuarters(move); // Computer's move that wins 3/4 of the time
     result = getWinner(move, computerPlay) // The result of the computer and player's game
