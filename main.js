@@ -1,6 +1,6 @@
 //task 1
-let playerMove = "rock";
-let computerMove = "paper";
+//let playerMove = "rock";
+//let computerMove = "paper";
 /*
 if (playerMove === "rock"){
     if (computerMove === "paper"){
@@ -38,6 +38,7 @@ if (playerMove === "rock"){
 
 //task 2
 
+/*
 function getWinner(player1, player2) {
     if (player1 === "rock"){
         if (player2 === "paper"){
@@ -73,6 +74,7 @@ function getWinner(player1, player2) {
     }
 }
 console.log(getWinner(playerMove, computerMove));
+*/
 
 //task3
 /*
@@ -102,6 +104,7 @@ alert(result)
 */
 
 //task 5
+/*
 let move;
 let computerPlay;
 let result;
@@ -112,4 +115,71 @@ while (keepPlaying) {
     result = getWinner(move, computerPlay)
     alert(result)
     keepPlaying = confirm("Do you want to keep playing?");
+}
+*/
+
+//task 6
+let gamesPlayed = 0; //number 
+let winScore = 0; //number
+let lossScore = 0; //number
+let drawScore = 0; //number
+
+let move;
+let computerPlay;
+let result;
+let keepPlaying = true;
+while (keepPlaying) {
+    move = prompt ('What is your move?');
+    computerPlay = getRandomMove()
+    result = getWinner(move, computerPlay)
+    alert(`Result: ${result}, Number of Games Played: ${gamesPlayed}, Wins: ${winScore}, Losses: ${lossScore}`);
+    keepPlaying = confirm("Do you want to keep playing?");
+}
+
+
+function getWinner(player1, player2) {
+    let score;
+    if (player1 === "rock"){
+        if (player2 === "paper"){
+            lossScore++;
+            score = -1;
+    
+        }else if (player2 === "scissors"){
+            winScore++;
+            score = 1;
+    
+        } else {
+            drawScore++;
+            score = 0;
+        }
+    } else if (player1 === "paper"){
+        if (player2 === "paper"){
+            drawScore++;
+            score = 0;
+    
+        }else if (player2 === "scissors"){
+            lossScore++;
+            score = -1;
+    
+        } else {
+            winScore++;
+            score = 1;
+        }
+    } else if (player1 === "scissors"){
+        if (player2 === "paper"){
+            winScore++;
+            score = 1;
+    
+        }else if (player2 === "scissors"){
+            drawScore++;
+            score = 0;
+    
+        } else {
+            lossScore++;
+            score = -1;
+        }
+    
+    }
+    gamesPlayed++;
+    return score;
 }
