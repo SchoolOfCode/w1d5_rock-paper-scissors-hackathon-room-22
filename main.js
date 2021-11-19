@@ -84,7 +84,7 @@ alert(getWinner(move, computerMove));
 
 
 //task 4
-
+/*
 function getRandomMove(){
     let moveNumber = Math.floor(Math.random() * 3);
     if (moveNumber === 0){
@@ -96,7 +96,7 @@ function getRandomMove(){
     }
 
 } 
-/*
+
 let move = prompt ('What is your move?');
 let computerPlay = getRandomMove()
 let result = getWinner(move, computerPlay)
@@ -261,3 +261,18 @@ function getWinner(player1, player2) {
     gamesPlayed++; //  +1 is added after every game to keep track of the amount of games played.
     return score; // Shows the score at the end of the game.
 }
+
+// Allows computer to generate a random move once the player has entered their move
+function getRandomMove(){
+    let moveNumber = Math.floor(Math.random() * 3); // Picking a number between 0-2
+
+    // Assign the number to a move string
+    if (moveNumber === 0){
+        return "rock"
+    }else if (moveNumber === 1){
+        return "paper"
+    } else if (moveNumber === 2){
+        return "scissors"
+    }
+
+} 
