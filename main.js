@@ -75,6 +75,26 @@ function getWinner(player1, player2) {
 console.log(getWinner(playerMove, computerMove));
 
 //task3
+/*
+let move = prompt ('What is your move?');
+alert(getWinner(move, computerMove));
+*/
 
-let move = prompt ('What is your move?')
-alert(getWinner(move, computerMove))
+
+//task 4
+
+function getRandomMove(){
+    let moveNumber = Math.floor(Math.random() * 3);
+    if (moveNumber === 0){
+        return "rock"
+    }else if (moveNumber === 1){
+        return "paper"
+    } else if (moveNumber === 2){
+        return "scissors"
+    }
+
+} 
+let move = prompt ('What is your move?');
+let computerPlay = getRandomMove()
+let result = getWinner(move, computerPlay)
+alert(result)
