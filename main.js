@@ -119,7 +119,7 @@ while (keepPlaying) {
 */
 
 //task 6
-let gamesPlayed = 0; //number 
+/*let gamesPlayed = 0; //number 
 let winScore = 0; //number
 let lossScore = 0; //number
 let drawScore = 0; //number
@@ -133,6 +133,83 @@ while (keepPlaying) {
     computerPlay = getRandomMove()
     result = getWinner(move, computerPlay)
     alert(`Result: ${result}, Number of Games Played: ${gamesPlayed}, Wins: ${winScore}, Losses: ${lossScore}`);
+    keepPlaying = confirm("Do you want to keep playing?");
+}
+
+
+function getWinner(player1, player2) {
+    let score;
+    if (player1 === "rock"){
+        if (player2 === "paper"){
+            lossScore++;
+            score = -1;
+    
+        }else if (player2 === "scissors"){
+            winScore++;
+            score = 1;
+    
+        } else {
+            drawScore++;
+            score = 0;
+        }
+    } else if (player1 === "paper"){
+        if (player2 === "paper"){
+            drawScore++;
+            score = 0;
+    
+        }else if (player2 === "scissors"){
+            lossScore++;
+            score = -1;
+    
+        } else {
+            winScore++;
+            score = 1;
+        }
+    } else if (player1 === "scissors"){
+        if (player2 === "paper"){
+            winScore++;
+            score = 1;
+    
+        }else if (player2 === "scissors"){
+            drawScore++;
+            score = 0;
+    
+        } else {
+            lossScore++;
+            score = -1;
+        }
+    
+    }
+    gamesPlayed++;
+    return score;
+}
+*/
+
+//task 7
+
+let firstLetter
+let userName 
+do {
+    userName = prompt ("What is your name? It must start with a capital letter and be 10 characters or less.")
+    firstLetter = userName.charCodeAt(0);
+  } while (userName.length > 10 || !(firstLetter >= 65 && firstLetter < 91));
+
+  
+
+let gamesPlayed = 0; //number 
+let winScore = 0; //number
+let lossScore = 0; //number
+let drawScore = 0; //number
+
+let move;
+let computerPlay;
+let result;
+let keepPlaying = true;
+while (keepPlaying) {
+    move = prompt ('What is your move?');
+    computerPlay = getRandomMove()
+    result = getWinner(move, computerPlay)
+    alert(`Username: ${userName}, Result: ${result}, Number of Games Played: ${gamesPlayed}, Wins: ${winScore}, Losses: ${lossScore}`);
     keepPlaying = confirm("Do you want to keep playing?");
 }
 
