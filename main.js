@@ -94,7 +94,22 @@ function getRandomMove(){
     }
 
 } 
+/*
 let move = prompt ('What is your move?');
 let computerPlay = getRandomMove()
 let result = getWinner(move, computerPlay)
 alert(result)
+*/
+
+//task 5
+let move;
+let computerPlay;
+let result;
+let keepPlaying = true;
+while (keepPlaying) {
+    move = prompt ('What is your move?');
+    computerPlay = getRandomMove()
+    result = getWinner(move, computerPlay)
+    alert(result)
+    keepPlaying = confirm("Do you want to keep playing?");
+}
