@@ -59,7 +59,7 @@ function getWinner(player1, player2) {
         } else {
             return 1
         }
-    } else {
+    } else if (player1 === "scissors"){
         if (player2 === "paper"){
             return 1
     
@@ -73,3 +73,8 @@ function getWinner(player1, player2) {
     }
 }
 console.log(getWinner(playerMove, computerMove));
+
+//task3
+
+let move = prompt ('What is your move?')
+alert(getWinner(move, computerMove))
