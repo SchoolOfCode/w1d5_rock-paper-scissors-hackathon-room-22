@@ -71,8 +71,5 @@ function getWinner(player1, player2) {
         }
     
     }
-  
-  }
-
-  console.log(getWinner(playerMove, computerMove));
-  
+}
+console.log(getWinner(playerMove, computerMove));
